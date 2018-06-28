@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-modular-server",
+  "version": "1.0.0",
+  "description": "Example of modular structure for nodejs server",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DSlike/nodejs-modular-server.git"
+  },
+  "keywords": [
+    "nodejs",
+    "server",
+    "modules"
+  ],
+  "author": "Daniel Votintsev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DSlike/nodejs-modular-server/issues"
+  },
+  "homepage": "https://github.com/DSlike/nodejs-modular-server#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "forever": "^0.15.3",
+    "formidable": "^1.2.1",
+    "helmet": "^3.12.1",
+    "mongodb": "^3.1.0",
+    "nodemon": "^1.17.5"
+  }
+}

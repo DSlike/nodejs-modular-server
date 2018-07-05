@@ -12,13 +12,11 @@ class DBCore {
         this.DB.collection(col).insert(data, (err, result) => {
           if (err) {
             try {
-              this.disconnect();
               callback(err);
             } catch (e) {
               console.log(err);
             }
           }
-          this.disconnect();
           callback(result);
         });
       } catch (e) {}
@@ -27,7 +25,6 @@ class DBCore {
   insertMany(col, data, callback) {
     this.reconnect(()=> {
       this.DB.collection(col).insertMany(data, (err, result) => {
-        this.disconnect();
         callback(result);
       });
     });
@@ -35,7 +32,6 @@ class DBCore {
 
   find(col, search, callback) {
     let back = (result)=> {
-      this.disconnect();
       callback(result);
     };
     if (search._id)
@@ -50,7 +46,6 @@ class DBCore {
             console.log(err);
           }
         }
-        this.disconnect();
         callback(result);
       });
     });
@@ -66,7 +61,6 @@ class DBCore {
           console.log(err);
         }
         docs = _.shuffle(docs);
-        this.disconnect();
         callback(docs.slice(0, limit));
       });
     });
@@ -82,7 +76,6 @@ class DBCore {
         if (err) {
           console.log(err);
         }
-        this.disconnect();
         callback(docs);
       });
 
@@ -101,7 +94,6 @@ class DBCore {
         if (err) {
           console.log(err);
         }
-        this.disconnect();
         callback(docs);
       });
 
@@ -119,7 +111,6 @@ class DBCore {
         if (err) {
           console.log(err);
         }
-        this.disconnect();
         callback(result);
       });
 
@@ -142,20 +133,17 @@ class DBCore {
                 _id: e._id
               }, data, (response) => {
                 if (i == docs.length - 1) {
-                  this.disconnect();
                   callback('done');
                 }
               });
             });
           } else {
-            this.disconnect();
             callback('done');
           }
         });
 
       });
     } else {
-      this.disconnect();
       callback('done');
     }
   }

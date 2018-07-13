@@ -5,6 +5,14 @@ const app = require('./app/core/app.js');
 if (!process.env.NODE_ENV)
   process.env.NODE_ENV = 'development';
 
+process.env.CURRENT_API = '1.0.0.0';
+
+// SHORT API VERSION SLICING
+let APIV = process.env.CURRENT_API.split('.');
+APIV = `${APIV[0]}.${APIV[1]}`;
+
+process.env.API_VERSION = APIV;
+
 process.env.RootPath = __dirname + '/app/';
 process.env.Core = __dirname + '/app/core/';
 process.env.PrivatePath = __dirname + '/private/';

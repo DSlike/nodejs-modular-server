@@ -4,7 +4,7 @@ module.exports = function(req, callback) {
 
   try {
     const CONTROL = require(cpath);
-    const controller = new CONTROL(token, req.method, req.params.method);
+    const controller = new CONTROL(token, req.method, req.params.method, res.params.version);
     const query = req.query ? req.query : null;
     const method = req.method + '' + req.params.method;
 

@@ -3,6 +3,7 @@ class User {
     this.DBCore = require('../core/db.js');
     this.httpMethod = httpMethod;
     this.method = method;
+    this.version = version ? version : process.env.API_VERSION;
 
     if (token)
       this.userToken = token;
@@ -16,7 +17,7 @@ class User {
     };
 
     const fileName = httpMethod + '_' + method + '.js';
-    const path = process.env.RootPath + 'modules/users/' + fileName;
+    const path = `${process.env.RootPath}modules/${this.version}/users/${fileName}`;
 
     this[httpMethod + '' + method] = require(path);
   }

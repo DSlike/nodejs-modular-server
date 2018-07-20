@@ -1,5 +1,5 @@
 module.exports = function(req, callback) {
-  const cpath = `${process.env.RootPath}controller/${req.params.class}`;
+  const cpath = `${process.env.RootPath}controllers/${req.params.class}`;
   const token = req.headers.token ? req.headers.token : '';
 
   try {

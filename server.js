@@ -19,8 +19,8 @@ process.env.PrivatePath = __dirname + '/private/';
 process.env.PublicPath = __dirname + '/public/';
 process.env.KeysPath = __dirname + '/app/core/keys/';
 
-process.env.APIURL = 'http://api.4fitnessgirls.net/';
-process.env.MONGO_URL = 'mongodb://localhost:27017/4FitnessGirls';
+process.env.APIURL = 'http://api.domain.net/';
+process.env.MONGO_URL = 'mongodb://localhost:27017/database';
 process.env.DB_NAME = 'dbname';
 
 if (process.env.NODE_ENV == 'production') {

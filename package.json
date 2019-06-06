@@ -4,7 +4,7 @@
   "description": "Example of modular structure for nodejs server",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "NODE_ENV=development nodemon"
   },
   "repository": {
     "type": "git",

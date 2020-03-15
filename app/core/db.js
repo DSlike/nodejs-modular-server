@@ -6,6 +6,7 @@ class DBCore {
   constructor() {
     this.reconnect();
   }
+
   insert(col, data, callback) {
     this.reconnect(()=> {
       try {
@@ -17,15 +18,18 @@ class DBCore {
               console.log(err);
             }
           }
+
           callback(result);
         });
       } catch (e) {}
     });
   }
+
   find(col, search, callback) {
     let back = (result)=> {
       callback(result);
     };
+
     if (search._id)
       search._id = new mongodb.ObjectId(search._id);
     this.reconnect(()=> {
@@ -38,10 +42,12 @@ class DBCore {
             console.log(err);
           }
         }
+
         callback(result);
       });
     });
   }
+
   findAll(col, search, callback) {
 
     if (search._id)
@@ -52,11 +58,13 @@ class DBCore {
         if (err) {
           console.log(err);
         }
+
         callback(docs);
       });
 
     });
   }
+
   update(col, search, data, callback) {
 
     if (search._id)
@@ -64,23 +72,27 @@ class DBCore {
 
     this.reconnect(()=> {
       this.DB.collection(col).updateOne(search, {
-        $set: data
+        $set: data,
       }, (err, result) => {
         if (err) {
           console.log(err);
         }
+
         callback(result);
       });
 
     });
   }
+
   disconnect() {
     if (this.database) {
       this.database.close();
     }
+
     delete this.database;
     delete this.DB;
   }
+
   reconnect(callback) {
     if (!this.DB)
       MongoClient.connect(process.env.MONGO_URL, (err, database) => {

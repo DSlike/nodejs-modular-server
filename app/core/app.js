@@ -10,17 +10,17 @@ app.enable('trust proxy');
 app.use(bodyParser.json());
 app.use(bodyParser.json({
   limit: '100mb',
-  type: 'application/*+json'
+  type: 'application/*+json',
 }));
 
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
 }));
 
 var port = process.env.PORT || 3000;
 
 try {
-  app.listen(port, function() {
+  app.listen(port, function () {
     console.log('Listening on ' + port);
   });
 } catch (e) {

@@ -2,7 +2,7 @@ const formidable = require('formidable');
 const path = require('path');
 const fs = require('fs');
 
-module.exports = function(req, callback) {
+module.exports = function (req, callback) {
   const cpath = `${process.env.RootPath}controllers/${req.params.class}`;
   const token = req.headers.token ? req.headers.token : '';
   let contype = req.headers['content-type'];
@@ -27,7 +27,7 @@ module.exports = function(req, callback) {
         let response = {
           code: 503,
           body: 'Oops. Something went wrong!',
-          error: e
+          error: e,
         };
         callback(response);
       }
@@ -46,6 +46,7 @@ module.exports = function(req, callback) {
                 err && console.log(err);
               });
             }
+
             controller.disconnect();
             delete controller;
             callback(response);
@@ -56,7 +57,7 @@ module.exports = function(req, callback) {
           let response = {
             code: 503,
             body: 'Oops. Something went wrong!',
-            error: e
+            error: e,
           };
           callback(response);
         }
@@ -68,7 +69,7 @@ module.exports = function(req, callback) {
     let response = {
       code: 503,
       body: 'Oops. Something went wrong!',
-      error: e
+      error: e,
     };
     callback(response);
   }

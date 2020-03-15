@@ -3,7 +3,7 @@ const fs = require('fs');
 
 let fileName = 'file';
 
-module.exports = function(req, form, callback) {
+module.exports = function (req, form, callback) {
   fileName = 'file';
   let hasImage = false;
   form.multiples = true;
@@ -11,7 +11,7 @@ module.exports = function(req, form, callback) {
   const uploadDir = 'files upload dir';
 
   try {
-    form.on('fileBegin', function(name, file) {
+    form.on('fileBegin', function (name, file) {
       if (file)
         hasImage = true;
       try {

@@ -21,6 +21,7 @@ class User {
 
     this[httpMethod + '' + method] = require(path);
   }
+
   disconnect() {
     this.DBCore.disconnect();
   }

@@ -8,7 +8,7 @@ module.exports = (app) => {
     app.route('/API/:class/:method')
       .get((req, res) => {
         let route = require(`${process.env.Core}routes/get.js`);
-        
+
         let v = req.params.version;
         if (!v)
           v = process.env.API_VERSION;
@@ -20,7 +20,7 @@ module.exports = (app) => {
       })
       .post((req, res) => {
         let route = require(`${process.env.Core}routes/post.js`);
-        
+
         let v = req.params.version;
         if (!v)
           v = process.env.API_VERSION;
@@ -32,7 +32,7 @@ module.exports = (app) => {
       })
       .put((req, res) => {
         let route = require(`${process.env.Core}routes/put.js`);
-        
+
         let v = req.params.version;
         if (!v)
           v = process.env.API_VERSION;
